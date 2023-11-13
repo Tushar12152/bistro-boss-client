@@ -25,6 +25,9 @@ const navOptions=<div className="flex gap-6 items-center ">
 <NavLink to="/" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500 p-2 rounded-lg" : "" } > Home</NavLink>
 
 
+<NavLink to="/secret" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500 p-2 rounded-lg" : "" } > Secret</NavLink>
+
+
 <NavLink to="/menu" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500  p-2 rounded-lg" : "" } > Our Menu</NavLink>
 
 
