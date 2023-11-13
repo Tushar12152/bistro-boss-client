@@ -13,6 +13,8 @@ const navOptions=<div className="flex gap-6 items-center ">
 
 <NavLink to="/order/salad" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500  p-2 rounded-lg" : "" } > Order Food</NavLink>
 
+<NavLink to="/login" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500  p-2 rounded-lg" : "" } > Log In</NavLink>
+
 
 
 </div>
