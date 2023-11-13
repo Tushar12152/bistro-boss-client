@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';22
+import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';import useAuth from "../../Hooks/useAuth";
+import { Link } from "react-router-dom";
+22
 
 
 const Login = () => {
    const [show,setShow]=useState(true)
    const [disabled,setDisabled]=useState(true)
    const captchaRef=useRef(null)
+
+const{signIn}=useAuth()
+
    useEffect(()=>{
     loadCaptchaEnginge(6);
 },[])
@@ -18,6 +23,14 @@ const handleLogin=e=>{
     const email=form.email.value;
     const password= form.password.value;
     console.log(email,password);
+    signIn(email,password)
+    .then(res=>{
+        console.log(res.user);
+    })
+
+    .catch(err=>{
+        console.log(err);
+    })
 }
 
 
@@ -77,9 +90,12 @@ const handleCaptcha=()=>{
 
               <div className="form-control mt-6">
               
-                <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
+                <input disabled={disabled} className="btn bg-[#D1A054]" type="submit" value="Login" />
               </div>
             </form>
+         
+               <p className="text-[#D1A054] text-center p-5 text-lg">New Here? <Link className="font-bold text-xl" to="/signUp">create an account</Link></p>
+      
           </div>
         </div>
       </div>
