@@ -1,6 +1,23 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Nav = () => {
+  const {logOut,user}=useAuth()
+  console.log(user);
+
+const handleLogOut=()=>{
+   logOut()
+   .then(()=>{
+     Swal.fire('log out successfully compleate')
+   })
+    .catch(err=>{
+      console.log(err);
+    })
+
+}
+
+
 
 const navOptions=<div className="flex gap-6 items-center ">
 
@@ -13,7 +30,17 @@ const navOptions=<div className="flex gap-6 items-center ">
 
 <NavLink to="/order/salad" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500  p-2 rounded-lg" : "" } > Order Food</NavLink>
 
-<NavLink to="/login" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500  p-2 rounded-lg" : "" } > Log In</NavLink>
+
+{
+  user?
+
+  
+  <button onClick={handleLogOut}>Log Out</button>
+  :
+  <NavLink to="/login" className={({ isActive, isPending  }) => isPending ? "pending" : isActive ? "bg-yellow-500  p-2 rounded-lg" : "" } > Log In</NavLink>
+  
+
+  }
 
 
 

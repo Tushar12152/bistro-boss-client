@@ -1,17 +1,32 @@
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 
 
 const SignUp = () => {
+
+    const {createUser}=useAuth()
+
 const{register,handleSubmit,formState:{ errors }} = useForm()
 const onSubmit = (data) => {
     console.log(data)
+    createUser(data.email,data.password)
+    .then(res=>{
+           console.log(res.user);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
 }
 
 
     return (
         <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                 <title>Bistro-Boss | Sign up</title>
+            </Helmet>
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">SignUp now!</h1>
