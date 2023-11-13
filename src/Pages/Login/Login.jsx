@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
-import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';22
 
 
 const Login = () => {
