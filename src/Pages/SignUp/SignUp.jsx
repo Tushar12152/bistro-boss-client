@@ -1,20 +1,41 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 
 const SignUp = () => {
 
-    const {createUser}=useAuth()
+    const {createUser,updateUserProfile,logOut}=useAuth()
+    const navigate=useNavigate()
 
-const{register,handleSubmit,formState:{ errors }} = useForm()
+const{register,handleSubmit,reset,formState:{ errors }} = useForm()
 const onSubmit = (data) => {
     console.log(data)
     createUser(data.email,data.password)
     .then(res=>{
            console.log(res.user);
+
+           updateUserProfile(data.name,data.photoURL)
+           .then(()=>{
+             console.log('user profile info updated');
+             reset()
+             Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "user created successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              
+              logOut()
+              .then(()=>{
+                navigate('/login')
+              })
+
+           })
     })
     .catch(err=>{
         console.log(err);
@@ -40,6 +61,14 @@ const onSubmit = (data) => {
           </label>
           <input name="name"  {...register("name" ,{required:true})} type="text" placeholder="Name" className="input input-bordered" />
           {errors.name && <span className="text-red-600">Name is required</span>}
+        </div>
+
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo URL</span>
+          </label>
+          <input name="photoURL"  {...register("photoURL" ,{required:true})} type="text" placeholder="Photo URL" className="input input-bordered" />
+          {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
         </div>
         <div className="form-control">
           <label className="label">

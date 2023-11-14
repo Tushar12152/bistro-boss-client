@@ -1,7 +1,7 @@
 import { useEffect,  useState } from "react";
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai';
 import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';import useAuth from "../../Hooks/useAuth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
@@ -10,13 +10,15 @@ import Swal from "sweetalert2";
 const Login = () => {
    const [show,setShow]=useState(true)
    const [disabled,setDisabled]=useState(true)
- 
+   const location=useLocation()
+
+   const from = location.state?.from?.pathname || "/";
    const navigate=useNavigate()
 
 const{signIn}=useAuth()
 
    useEffect(()=>{
-    loadCaptchaEnginge(6);
+    loadCaptchaEnginge(4);
 },[])
 
 const handleLogin=e=>{
@@ -30,7 +32,7 @@ const handleLogin=e=>{
     .then(res=>{
         console.log(res.user);
         
-        navigate('/')
+        navigate(from,{replace:true})
         Swal.fire('successfully Logged in')
     })
 
@@ -100,8 +102,8 @@ const handleCaptcha=(e)=>{
 
 
               <div className="form-control mt-6">
-              
-                <input disabled={disabled} className="btn bg-[#D1A054]" type="submit" value="Login" />
+                 {/* TODO: apply "disabled" for recaptcha */}
+                <input disabled={false} className="btn bg-[#D1A054]" type="submit" value="Login" />
               </div>
             </form>
          
