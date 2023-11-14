@@ -2,11 +2,16 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from 'react-icons/fa';
+import useCarts from "../../../Hooks/useCarts";
 
 
 const Nav = () => {
   const { logOut, user } = useAuth();
   // console.log(user);
+
+  const [carts]=useCarts()
+
+
 
   const handleLogOut = () => {
     logOut()
@@ -81,7 +86,7 @@ const Nav = () => {
         {" "}
         <button className=" btn-ghost flex gap-1 items-center justify-center">
           <FaShoppingCart/>
-          <div className="badge  bg-[#D1A054]">+0</div>
+          <div className="badge  bg-[#D1A054]">+{carts.length}</div>
         </button>
       </NavLink>
 
