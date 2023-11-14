@@ -74,7 +74,7 @@ const Nav = () => {
       </NavLink>
 
       <NavLink
-        to="/"
+        to="/dashboard/cart"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
