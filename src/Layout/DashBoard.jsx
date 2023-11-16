@@ -2,6 +2,7 @@ import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaSearch, FaShoppingCart,  Fa
 import { NavLink, Outlet } from "react-router-dom";
 import useCarts from "../Hooks/useCarts";
 import { MdEmail } from "react-icons/md";
+import useAdmin from "../Hooks/useAdmin";
 
 const DashBoard = () => {
 const[cart]=useCarts()
@@ -9,7 +10,7 @@ const[cart]=useCarts()
 
 
 //TODO: get isAdmin from the database
-const isAdmin=true;
+const [isAdmin]=useAdmin()
 
     return (
         <div className="flex gap-2">
