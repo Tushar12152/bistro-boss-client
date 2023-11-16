@@ -7,7 +7,7 @@ import useCarts from "../../../Hooks/useCarts";
 
 const Nav = () => {
   const { logOut, user } = useAuth();
-  // console.log(user);
+  console.log(user?.photoURL);
 
   const [carts]=useCarts()
 

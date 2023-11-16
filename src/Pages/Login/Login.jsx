@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Components/SocialLogin";
 
 
 
@@ -40,6 +41,8 @@ const handleLogin=e=>{
         console.log(err);
     })
 }
+
+
 
 
 const handleCaptcha=(e)=>{
@@ -108,6 +111,11 @@ const handleCaptcha=(e)=>{
             </form>
          
                <p className="text-[#D1A054] text-center p-5 text-lg">New Here? <Link className="font-bold text-xl" to="/signUp">create an account</Link></p>
+
+               <div>
+                   <p className="w-[70%] text-center border-b-2 p-4 border-black   mx-auto font-semibold text-2xl ">Sign Up With</p>
+                   <SocialLogin></SocialLogin>
+               </div>
       
           </div>
         </div>
