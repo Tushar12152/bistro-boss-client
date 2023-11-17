@@ -12,6 +12,7 @@ import Cart from "../Pages/DashBoard/Cart";
 import AllUsers from "../Pages/DashBoard/Admin/AllUsers";
 import AddItems from "../Pages/DashBoard/Admin/AddItems";
 import ManageItems from "../Pages/DashBoard/Admin/ManageItems";
+import AdminRoute from "./AdminRoute";
 // import AdminRoute from "./AdminRoute";
 
 const Routs = createBrowserRouter([
