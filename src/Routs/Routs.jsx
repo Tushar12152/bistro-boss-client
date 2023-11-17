@@ -11,7 +11,8 @@ import DashBoard from "../Layout/DashBoard";
 import Cart from "../Pages/DashBoard/Cart";
 import AllUsers from "../Pages/DashBoard/Admin/AllUsers";
 import AddItems from "../Pages/DashBoard/Admin/AddItems";
-import AdminRoute from "./AdminRoute";
+import ManageItems from "../Pages/DashBoard/Admin/ManageItems";
+// import AdminRoute from "./AdminRoute";
 
 const Routs = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ const Routs = createBrowserRouter([
                 path:"/dashboard/addItems",
                 element:<AddItems></AddItems>
                
+            },
+            {
+                path:'/dashboard/manageItems',
+                element:<ManageItems></ManageItems>
             }
         ]
 
