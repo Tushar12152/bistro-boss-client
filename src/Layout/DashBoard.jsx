@@ -12,6 +12,8 @@ const[cart]=useCarts()
 //TODO: get isAdmin from the database
 const [isAdmin]=useAdmin()
 
+console.log(isAdmin);
+
     return (
         <div className="flex gap-2">
              <div className="w-64 min-h-screen bg-[#D1A054] ">
