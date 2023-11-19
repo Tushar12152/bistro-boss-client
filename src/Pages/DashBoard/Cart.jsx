@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useCarts from "../../Hooks/useCarts";
 import { MdDelete } from "react-icons/md";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 
@@ -50,7 +51,13 @@ const handleDelete=id=>{
       <div className="flex justify-evenly">
         <h2 className="text-2xl">Total Items : {cart.length}</h2>
         <h2 className="text-2xl">Total Price :$ {totalPrice}</h2>
-        <button className="btn bg-[#D1A054]">pay</button>
+      {
+        cart.length?
+         <Link to='/dashboard/payment'>
+        <button  className="btn bg-[#D1A054]">pay</button>
+        </Link>:
+          <button disabled  className="btn bg-[#D1A054]">pay</button>
+      }
       </div>
 
       <div className="overflow-x-auto">
