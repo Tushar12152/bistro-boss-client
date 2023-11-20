@@ -15,6 +15,7 @@ import ManageItems from "../Pages/DashBoard/Admin/ManageItems";
 // import AdminRoute from "./AdminRoute";
 import UpdateItem from "../Pages/DashBoard/Admin/UpdateItem";
 import Payment from "../Pages/DashBoard/Payment";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory";
 
 
 
@@ -66,6 +67,10 @@ const Routs = createBrowserRouter([
             {
             path:'/dashboard/payment',
             element:<Payment></Payment>
+            },
+            {
+                path:'/dashboard/paymentHistory',
+                element:<PaymentHistory></PaymentHistory>
             },
 
               //admin routs

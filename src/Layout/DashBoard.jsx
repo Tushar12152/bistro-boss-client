@@ -70,7 +70,7 @@ console.log(isAdmin);
                 </li>
                   <li>
                     
-                    <NavLink to='/dashboard/booking'>  <FaList></FaList> My Booking</NavLink>
+                    <NavLink to='/dashboard/paymentHistory'>  <FaList></FaList> Payment Real History</NavLink>
                 </li>
                     </>
                    }
