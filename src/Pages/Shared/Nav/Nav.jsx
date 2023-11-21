@@ -3,12 +3,13 @@ import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCarts from "../../../Hooks/useCarts";
+import useAdmin from "../../../Hooks/useAdmin";
 
 
 const Nav = () => {
   const { logOut, user } = useAuth();
   console.log(user?.photoURL);
-
+  const [isAdmin]=useAdmin()
   const [carts]=useCarts()
 
 
@@ -35,15 +36,32 @@ const Nav = () => {
         Home
       </NavLink>
 
-      <NavLink
-        to="/secret"
+     {
+        user && isAdmin &&  <NavLink
+        to="/dashboard/adminHome"
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "bg-yellow-500 p-2 rounded-lg" : ""
         }
       >
         {" "}
-        Secret
+        Admin Home
       </NavLink>
+
+     }
+
+
+     {
+        user && !isAdmin &&  <NavLink
+        to="/dashboard/userHome"
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "bg-yellow-500 p-2 rounded-lg" : ""
+        }
+      >
+        {" "}
+        User Home
+      </NavLink>
+
+     }
 
       <NavLink
         to="/menu"
@@ -168,3 +186,25 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

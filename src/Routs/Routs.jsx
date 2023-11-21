@@ -16,6 +16,8 @@ import ManageItems from "../Pages/DashBoard/Admin/ManageItems";
 import UpdateItem from "../Pages/DashBoard/Admin/UpdateItem";
 import Payment from "../Pages/DashBoard/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory";
+import AdminHome from "../Pages/DashBoard/Admin/AdminHome";
+import UserHome from "../Pages/DashBoard/UserHome";
 
 
 
@@ -73,6 +75,14 @@ const Routs = createBrowserRouter([
                 element:<PaymentHistory></PaymentHistory>
             },
 
+
+            {
+                 path:"/dashboard/userHome",
+                 element:<UserHome></UserHome>
+            },
+
+            
+
               //admin routs
 
             {
@@ -85,6 +95,10 @@ const Routs = createBrowserRouter([
                 element:<AddItems></AddItems>
                
             },
+            {
+                path:"/dashboard/adminHome",
+                element:<AdminHome></AdminHome>,
+             },
             {
                 path:'/dashboard/manageItems',
                 element:<ManageItems></ManageItems>
